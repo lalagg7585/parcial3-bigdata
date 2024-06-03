@@ -1,4 +1,4 @@
-#!/home/ubuntu/environment/my_lambda_function/venv/bin/python3
+#!/home/ec2-user/environment/parcial3-bigdata/venv/bin/python3
 
 # Copyright 2012-2023, Andrey Kislyuk and argcomplete contributors.
 # Licensed under the Apache License. See https://github.com/kislyuk/argcomplete for more info.
