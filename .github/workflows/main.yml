@@ -64,6 +64,7 @@ jobs:
       #Update sakila tables
       - name: Deploy with Zappa 
         run: |
+          pwd
           python -m venv venv
           source venv/bin/activate
           pip install urllib3==1.26.7
@@ -75,7 +76,7 @@ jobs:
 
           pwd
           zappa update dev
-          zappa invoke dev lambda_funtion.lambda_handler
+          zappa invoke dev lambda_function.lambda_handler
           
           python run_jobSakila.py
 
