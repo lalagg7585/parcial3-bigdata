@@ -1,0 +1,70 @@
+{
+    "dev": {
+        "app_function": "lambda_function.lambda_handler",
+        "aws_region": "us-east-1",
+        "s3_bucket": "zappa-parcial3",
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "project_name": "my-lambda-function_final",
+        "keep_warm": false,
+        "runtime": "python3.10",
+        "slim_handler": true,
+        "apigateway_enabled": false,
+        "timeout_seconds": 300,  // Incrementar si es posible y necesario
+        "memory_size": 300,  // Incrementar si es posible y necesario
+        "events": [{
+            "function": "lambda_function.lambda_handler",
+            "expression": "cron(10 1 * * ? *)"
+        }],
+        "vpc_config": {
+            "SubnetIds": [
+                "subnet-01b3bd5670bfbfc60", 
+                "subnet-05308bed004d50f0e", 
+                "subnet-0cd4e77ee815fed13", 
+                "subnet-02bf22174260b27bd", 
+                "subnet-06be8c50e4029f67f", 
+                "subnet-096a9732a4fde351f"
+            ],
+            "SecurityGroupIds": [
+                "sg-05cb81b695f667614",
+                "sg-0a79c7360cb816b92"
+            ]
+        }
+    },
+    
+    "dev2": {
+        "app_function": "actualizarDate.lambda_handler",
+        "aws_region": "us-east-1",
+        "s3_bucket": "zappa-parcial3dev2", 
+        "role_name": "LabRole",
+        "profile_name": "default",
+        "manage_roles": false,
+        "project_name": "update_date_dimension",
+        "keep_warm": false,
+        "runtime": "python3.8",
+        "slim_handler": true,
+        "apigateway_enabled": false,
+        "timeout_seconds": 300,  // Incrementar si es posible y necesario
+        "memory_size": 300,  // Incrementar si es posible y necesario
+        "events": [{
+            "function": "lambda_function.lambda_handler",
+            "expression": "cron(0 0 1 * ? *)"
+        }],
+        "vpc_config": {
+            "SubnetIds": [
+                "subnet-01b3bd5670bfbfc60", 
+                "subnet-05308bed004d50f0e", 
+                "subnet-0cd4e77ee815fed13", 
+                "subnet-02bf22174260b27bd", 
+                "subnet-06be8c50e4029f67f", 
+                "subnet-096a9732a4fde351f"
+            ],
+            "SecurityGroupIds": [
+                "sg-05cb81b695f667614",
+                "sg-0a79c7360cb816b92"
+            ]
+        }
+}
+
+    
+}
